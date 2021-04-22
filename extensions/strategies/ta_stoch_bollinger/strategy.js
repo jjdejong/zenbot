@@ -6,13 +6,12 @@ let z = require('zero-fill'),
 
 module.exports = {
   name: 'ta_stoch_bollinger',
-  description: 'Stochastic BollingerBand Strategy',
+  description: 'Stochastic Bollinger Band Strategy',
 
   getOptions: function() {
     this.option('period', 'period length, same as --period_length', String, '3m')
     this.option('period_length', 'period length, same as --period', String, '3m')
     this.option('min_periods', 'min. number of history periods', Number, 200)
-    // this.option('rsi_periods', 'Time period for building the Fast-K line', Number, 14)
     this.option('stoch_periods', 'Time period for building the Fast-K line', Number, 14)
     this.option('stoch_k', 'Smoothing for making the Slow-K line. Usually set to 3', Number, 3)
     this.option('stoch_k_ma_type', 'Type of Moving Average for Slow-K : SMA,EMA,WMA,DEMA,TEMA,TRIMA,KAMA,MAMA,T3', String, 'DEMA'),
@@ -33,24 +32,24 @@ module.exports = {
     if (s.in_preroll) return
   },
 
-  onPeriod: function(s, cb) {
+  onPeriod: (s, cb) => {
     //make sure we have all values
     if (s.in_preroll) return cb()
     ta_bollinger(s, 'tabollinger', s.options.bollinger_size, s.options.bollinger_updev, s.options.bollinger_dndev, s.options.bollinger_dType)
-    .then(function(inbol) {
+    .then(inbol => {
       ta_stoch(s, 'stoch', s.options.stoch_periods, s.options.stoch_k, s.options.stoch_k_ma_type, s.options.stoch_d, s.options.stoch_d_ma_type)
-      .then(function(inres) {
+      .then(inres => {
         if (!inres) return cb()
-        var divergent = inres.k[inres.k.length - 1] - inres.d[inres.k.length - 1]
         s.period.stoch_D = inres.d[inres.d.length - 1]
         s.period.stoch_K = inres.k[inres.k.length - 1]
+        var divergent = s.period.stoch_K - s.period.stoch_D
         var last_divergent = inres.k[inres.k.length - 2] - inres.d[inres.d.length - 2]
         var _switch = 0
         var nextdivergent = ((divergent + last_divergent) / 2) + (divergent - last_divergent)
-        if (last_divergent <= 0 && divergent > 0) {
+        if (last_divergent <= 0 && divergent > 0) { // last_K <= last_D && K > D
           _switch = 1 // price rising
         }
-        if (last_divergent >= 0 && divergent < 0) {
+        if (last_divergent >= 0 && divergent < 0) { // last_K >= last_D && K < D
           _switch = -1 // price falling
         }
 
@@ -74,29 +73,29 @@ module.exports = {
         if (_switch != 0) {
           if (s.period.close >= midBound
             && Math.max(s.period.close, s.period.open) >= (upperBound / 100) * (100 + s.options.bollinger_upper_bound_pct)
-            && nextdivergent < divergent 
-            && _switch == -1 
-				    && s.period.stoch_K > s.options.stoch_k_sell)
+            // && nextdivergent < divergent // K + K[-1] < D + D[-1] Possibly redundant with updated criterion below
+            && s.period.stoch_D > s.options.stoch_k_sell
+            && s.period.stoch_K <= s.period.stoch_D)
           {
             s.signal = 'sell'
           } else if (Math.min(s.period.close, s.period.open) <= (lowerBound / 100) * (100 + s.options.bollinger_lower_bound_pct)
-            && nextdivergent > divergent 
-            && _switch == 1 
-			  	  && s.period.stoch_K < s.options.stoch_k_buy)
+            // && nextdivergent > divergent // K + K[-1] > D + D[-1] Possibly redundant with updated criterion below
+            && s.period.stoch_D < s.options.stoch_k_buy
+            && s.period.stoch_K >= s.period.stoch_D)
           {
             s.signal = 'buy'
           }
         }
         cb()
-      }).catch(function() {
+      }).catch(() => {
         cb()
       })
-    }).catch(function() {
+    }).catch(() => {
       cb()
     })
   },
 
-  onReport: function(s) {
+  onReport: s => {
     var cols = []
     if (s.period.bollinger) {
       if (s.period.bollinger.upperBound && s.period.bollinger.lowerBound) {
@@ -104,10 +103,10 @@ module.exports = {
         let lowerBound = s.period.bollinger.lowerBound
         var color = 'grey'
         if (Math.max(s.period.close, s.period.open) > (upperBound / 100) * (100 + s.options.bollinger_upper_bound_pct)) {
-          color = 'green'
+          color = 'red'
         }
         if (Math.min(s.period.close, s.period.open) < (lowerBound / 100) * (100 - s.options.bollinger_lower_bound_pct)) {
-          color = 'red'
+          color = 'green'
         }
         cols.push(z(8, n(s.period.close).format('+00.0000'), ' ')[color])
         cols.push(z(8, n(lowerBound).format('0.0000').substring(0, 7), ' ').cyan)
@@ -136,7 +135,6 @@ module.exports = {
     profit_stop_pct: Phenotypes.RangeFactor(0.0, 50.0, 0.1),
 
     // -- strategy
-    // rsi_periods: Phenotypes.Range(10, 30),
     stoch_periods: Phenotypes.Range(5, 30),
     stoch_k: Phenotypes.Range(1, 10),
     stoch_k_ma_type: Phenotypes.ListOption(['SMA', 'EMA', 'WMA', 'DEMA', 'TEMA', 'TRIMA', 'KAMA', 'MAMA', 'T3']),
