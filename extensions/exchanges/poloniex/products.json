@@ -48,6 +48,14 @@
     "label": "Akropolis Delphi/Tether USD"
   },
   {
+    "asset": "AKITA",
+    "currency": "USDT",
+    "min_total": "1",
+    "max_size": null,
+    "increment": "0.00000001",
+    "label": "Akita Inu/Tether USD"
+  },
+  {
     "asset": "AKRO",
     "currency": "BTC",
     "min_total": "0.0001",
@@ -158,6 +166,14 @@
     "max_size": null,
     "increment": "0.00000001",
     "label": "Travala.com Token/Tether USD"
+  },
+  {
+    "asset": "B20",
+    "currency": "USDT",
+    "min_total": "1",
+    "max_size": null,
+    "increment": "0.00000001",
+    "label": "B20/Tether USD"
   },
   {
     "asset": "BAC",
@@ -1320,6 +1336,14 @@
     "label": "3X Long Chainlink Token/Tether USD"
   },
   {
+    "asset": "LIVE",
+    "currency": "USDT",
+    "min_total": "1",
+    "max_size": null,
+    "increment": "0.00000001",
+    "label": "TRONbetLive/Tether USD"
+  },
+  {
     "asset": "LON",
     "currency": "USDT",
     "min_total": "1",
@@ -1830,6 +1854,14 @@
     "max_size": null,
     "increment": "0.00000001",
     "label": "saffron.finance/Tether USD"
+  },
+  {
+    "asset": "SHIB",
+    "currency": "USDT",
+    "min_total": "1",
+    "max_size": null,
+    "increment": "0.00000001",
+    "label": "Shiba Inu/Tether USD"
   },
   {
     "asset": "SNT",
