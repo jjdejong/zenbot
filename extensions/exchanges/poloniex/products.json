@@ -208,14 +208,6 @@
     "label": "Band Protocol Token/Tether USD"
   },
   {
-    "asset": "BAS",
-    "currency": "USDT",
-    "min_total": "1",
-    "max_size": null,
-    "increment": "0.00000001",
-    "label": "Basis Share/Tether USD"
-  },
-  {
     "asset": "BAT",
     "currency": "BTC",
     "min_total": "0.0001",
@@ -632,14 +624,6 @@
     "label": "Corn/Tether USD"
   },
   {
-    "asset": "COVER",
-    "currency": "USDT",
-    "min_total": "1",
-    "max_size": null,
-    "increment": "0.00000001",
-    "label": "Cover Protocol/Tether USD"
-  },
-  {
     "asset": "CREAM",
     "currency": "USDT",
     "min_total": "1",
@@ -800,30 +784,6 @@
     "label": "TRONbetDice/Tether USD"
   },
   {
-    "asset": "DMG",
-    "currency": "BTC",
-    "min_total": "0.0001",
-    "max_size": null,
-    "increment": "0.00000001",
-    "label": "DMM: Governance/Bitcoin"
-  },
-  {
-    "asset": "DMG",
-    "currency": "TRX",
-    "min_total": "0.0001",
-    "max_size": null,
-    "increment": "0.00000001",
-    "label": "DMM: Governance/Tron"
-  },
-  {
-    "asset": "DMG",
-    "currency": "USDT",
-    "min_total": "1",
-    "max_size": null,
-    "increment": "0.00000001",
-    "label": "DMM: Governance/Tether USD"
-  },
-  {
     "asset": "DOGE",
     "currency": "BTC",
     "min_total": "0.0001",
@@ -870,6 +830,14 @@
     "max_size": null,
     "increment": "0.00000001",
     "label": "Polkadot/Tether USD"
+  },
+  {
+    "asset": "ELON",
+    "currency": "USDT",
+    "min_total": "1",
+    "max_size": null,
+    "increment": "0.00000001",
+    "label": "Dogelon/Tether USD"
   },
   {
     "asset": "EOS",
@@ -1288,6 +1256,14 @@
     "label": "Just/Tether USD"
   },
   {
+    "asset": "KCS",
+    "currency": "USDT",
+    "min_total": "1",
+    "max_size": null,
+    "increment": "0.00000001",
+    "label": "KuCoin Token/Tether USD"
+  },
+  {
     "asset": "KLV",
     "currency": "BTC",
     "min_total": "0.0001",
@@ -1592,6 +1568,14 @@
     "label": "Wrapped Mirror Token/Tether USD"
   },
   {
+    "asset": "MIST",
+    "currency": "USDT",
+    "min_total": "1",
+    "max_size": null,
+    "increment": "0.00000001",
+    "label": "Alchemist/Tether USD"
+  },
+  {
     "asset": "MKR",
     "currency": "BTC",
     "min_total": "0.0001",
@@ -1742,14 +1726,6 @@
     "max_size": null,
     "increment": "0.00000001",
     "label": "PeerEx Network/Tether USD"
-  },
-  {
-    "asset": "PLT",
-    "currency": "USDT",
-    "min_total": "1",
-    "max_size": null,
-    "increment": "0.00000001",
-    "label": "PlutusDeFi/Tether USD"
   },
   {
     "asset": "POLS",
