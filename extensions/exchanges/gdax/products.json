@@ -522,6 +522,24 @@
     "label": "CRV/USD"
   },
   {
+    "asset": "CTSI",
+    "currency": "BTC",
+    "min_size": "1",
+    "max_size": "360000",
+    "increment": "0.0000001",
+    "asset_increment": "0.1",
+    "label": "CTSI/BTC"
+  },
+  {
+    "asset": "CTSI",
+    "currency": "USD",
+    "min_size": "1",
+    "max_size": "360000",
+    "increment": "0.0001",
+    "asset_increment": "0.1",
+    "label": "CTSI/USD"
+  },
+  {
     "asset": "CVC",
     "currency": "USDC",
     "min_size": "1",
@@ -837,6 +855,51 @@
     "label": "GRT/USD"
   },
   {
+    "asset": "ICP",
+    "currency": "BTC",
+    "min_size": "0.001",
+    "max_size": "1300",
+    "increment": "0.0000001",
+    "asset_increment": "0.0001",
+    "label": "ICP/BTC"
+  },
+  {
+    "asset": "ICP",
+    "currency": "EUR",
+    "min_size": "0.001",
+    "max_size": "1300",
+    "increment": "0.001",
+    "asset_increment": "0.0001",
+    "label": "ICP/EUR"
+  },
+  {
+    "asset": "ICP",
+    "currency": "GBP",
+    "min_size": "0.001",
+    "max_size": "1300",
+    "increment": "0.001",
+    "asset_increment": "0.0001",
+    "label": "ICP/GBP"
+  },
+  {
+    "asset": "ICP",
+    "currency": "USD",
+    "min_size": "0.001",
+    "max_size": "1300",
+    "increment": "0.001",
+    "asset_increment": "0.0001",
+    "label": "ICP/USD"
+  },
+  {
+    "asset": "ICP",
+    "currency": "USDT",
+    "min_size": "0.001",
+    "max_size": "1300",
+    "increment": "0.001",
+    "asset_increment": "0.0001",
+    "label": "ICP/USDT"
+  },
+  {
     "asset": "KNC",
     "currency": "BTC",
     "min_size": "1",
@@ -1042,6 +1105,42 @@
     "increment": "0.0001",
     "asset_increment": "0.1",
     "label": "MATIC/USD"
+  },
+  {
+    "asset": "MIR",
+    "currency": "BTC",
+    "min_size": "0.1",
+    "max_size": "27000",
+    "increment": "0.0000001",
+    "asset_increment": "0.01",
+    "label": "MIR/BTC"
+  },
+  {
+    "asset": "MIR",
+    "currency": "EUR",
+    "min_size": "0.1",
+    "max_size": "27000",
+    "increment": "0.001",
+    "asset_increment": "0.01",
+    "label": "MIR/EUR"
+  },
+  {
+    "asset": "MIR",
+    "currency": "GBP",
+    "min_size": "0.1",
+    "max_size": "27000",
+    "increment": "0.001",
+    "asset_increment": "0.01",
+    "label": "MIR/GBP"
+  },
+  {
+    "asset": "MIR",
+    "currency": "USD",
+    "min_size": "0.1",
+    "max_size": "27000",
+    "increment": "0.001",
+    "asset_increment": "0.01",
+    "label": "MIR/USD"
   },
   {
     "asset": "MKR",
@@ -1251,6 +1350,24 @@
     "label": "REP/USD"
   },
   {
+    "asset": "RLC",
+    "currency": "BTC",
+    "min_size": "0.1",
+    "max_size": "93000",
+    "increment": "0.0000001",
+    "asset_increment": "0.01",
+    "label": "RLC/BTC"
+  },
+  {
+    "asset": "RLC",
+    "currency": "USD",
+    "min_size": "0.1",
+    "max_size": "93000",
+    "increment": "0.001",
+    "asset_increment": "0.01",
+    "label": "RLC/USD"
+  },
+  {
     "asset": "SKL",
     "currency": "BTC",
     "min_size": "5",
@@ -1384,6 +1501,24 @@
     "increment": "0.001",
     "asset_increment": "0.01",
     "label": "SUSHI/USD"
+  },
+  {
+    "asset": "TRB",
+    "currency": "BTC",
+    "min_size": "0.01",
+    "max_size": "3100",
+    "increment": "0.0000001",
+    "asset_increment": "0.001",
+    "label": "TRB/BTC"
+  },
+  {
+    "asset": "TRB",
+    "currency": "USD",
+    "min_size": "0.01",
+    "max_size": "3100",
+    "increment": "0.001",
+    "asset_increment": "0.001",
+    "label": "TRB/USD"
   },
   {
     "asset": "UMA",
