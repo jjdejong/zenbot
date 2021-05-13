@@ -23,7 +23,7 @@ module.exports = {
     this.option('bollinger_size', 'period size', Number, 20)
     this.option('bollinger_updev', '', Number, 2)
     this.option('bollinger_dndev', '', Number, 2)
-    this.option('bollinger_dType', 'mode: : SMA,EMA,WMA,DEMA,TEMA,TRIMA,KAMA,MAMA,T3', String, 'SMA')
+    this.option('bollinger_dType', 'mode: : SMA,EMA,WMA,DEMA,TEMA,TRIMA,KAMA,MAMA,T3', String, 'EMA')
     this.option('bollinger_upper_bound_pct', 'pct the current price should be near the bollinger upper bound before we sell', Number, 0)
     this.option('bollinger_lower_bound_pct', 'pct the current price should be near the bollinger lower bound before we buy', Number, 0)
   },
@@ -64,22 +64,23 @@ module.exports = {
         }
 
         s.period.bollinger.upperBound = upperBound
+		let over = s.period.close >= upperBound * (100 + s.options.bollinger_upper_bound_pct)/100
+		s.period.over = over
+		
         s.period.bollinger.lowerBound = lowerBound
+		let under = s.period.close <= lowerBound * (100 + s.options.bollinger_lower_bound_pct)/100
+		s.period.under = under
+		
         s.period.bollinger.midBound = midBound
 
-        // K is fast moving
-
         s.signal = null
-        if (_switch != 0) {
-          if (s.period.close >= midBound
-            && Math.max(s.period.close, s.period.open) >= (upperBound / 100) * (100 + s.options.bollinger_upper_bound_pct)
-            // && nextdivergent < divergent // K + K[-1] < D + D[-1] Possibly redundant with updated criterion below
+        if (_switch != 0 || s.lookback[0]._switch != 0) {
+          if ((over || s.lookback[0].over)
             && s.period.stoch_D > s.options.stoch_k_sell
             && s.period.stoch_K <= s.period.stoch_D)
           {
             s.signal = 'sell'
-          } else if (Math.min(s.period.close, s.period.open) <= (lowerBound / 100) * (100 + s.options.bollinger_lower_bound_pct)
-            // && nextdivergent > divergent // K + K[-1] > D + D[-1] Possibly redundant with updated criterion below
+          } else if ((under || s.lookback[0].under)
             && s.period.stoch_D < s.options.stoch_k_buy
             && s.period.stoch_K >= s.period.stoch_D)
           {
@@ -102,10 +103,10 @@ module.exports = {
         let upperBound = s.period.bollinger.upperBound
         let lowerBound = s.period.bollinger.lowerBound
         var color = 'grey'
-        if (Math.max(s.period.close, s.period.open) > (upperBound / 100) * (100 + s.options.bollinger_upper_bound_pct)) {
+        if (s.period.over) {
           color = 'red'
         }
-        if (Math.min(s.period.close, s.period.open) < (lowerBound / 100) * (100 - s.options.bollinger_lower_bound_pct)) {
+        if (s.period.under) {
           color = 'green'
         }
         cols.push(z(8, n(s.period.close).format('+00.0000'), ' ')[color])
