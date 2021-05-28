@@ -744,14 +744,6 @@
     "label": "LINK/GBP"
   },
   {
-    "asset": "MKR",
-    "currency": "USD",
-    "min_size": "0.0015",
-    "max_size": null,
-    "increment": "0.01",
-    "label": "MKR/USD"
-  },
-  {
     "asset": "ZRX",
     "currency": "USD",
     "min_size": "3.5",
@@ -894,14 +886,6 @@
     "max_size": null,
     "increment": "0.01",
     "label": "DOT/USDT"
-  },
-  {
-    "asset": "COMP",
-    "currency": "USD",
-    "min_size": "0.06",
-    "max_size": null,
-    "increment": "0.01",
-    "label": "COMP/USD"
   },
   {
     "asset": "COMP",
@@ -1137,6 +1121,14 @@
   },
   {
     "asset": "TUSD",
+    "currency": "USD",
+    "min_size": "7",
+    "max_size": null,
+    "increment": "0.01",
+    "label": "TUSD/USD"
+  },
+  {
+    "asset": "TUSD",
     "currency": "USDT",
     "min_size": "7",
     "max_size": null,
@@ -1246,6 +1238,14 @@
     "max_size": null,
     "increment": "0.01",
     "label": "YFII/ETH"
+  },
+  {
+    "asset": "BUSD",
+    "currency": "USD",
+    "min_size": "10",
+    "max_size": null,
+    "increment": "0.01",
+    "label": "BUSD/USD"
   },
   {
     "asset": "BUSD",
@@ -1416,12 +1416,28 @@
     "label": "OCEAN/USD"
   },
   {
+    "asset": "SRM",
+    "currency": "USD",
+    "min_size": "6.5",
+    "max_size": null,
+    "increment": "0.01",
+    "label": "SRM/USD"
+  },
+  {
     "asset": "KAVA",
     "currency": "USD",
     "min_size": "4",
     "max_size": null,
     "increment": "0.01",
     "label": "KAVA/USD"
+  },
+  {
+    "asset": "STORJ",
+    "currency": "USD",
+    "min_size": "20",
+    "max_size": null,
+    "increment": "0.01",
+    "label": "STORJ/USD"
   },
   {
     "asset": "GLM",
@@ -1494,6 +1510,14 @@
     "max_size": null,
     "increment": "0.01",
     "label": "UTK/USD"
+  },
+  {
+    "asset": "UTK",
+    "currency": "USDT",
+    "min_size": "25",
+    "max_size": null,
+    "increment": "0.01",
+    "label": "UTK/USDT"
   },
   {
     "asset": "USDC",
@@ -1614,5 +1638,37 @@
     "max_size": null,
     "increment": "0.01",
     "label": "AAVE/USD"
+  },
+  {
+    "asset": "RENBTC",
+    "currency": "BTC",
+    "min_size": "0.000186",
+    "max_size": null,
+    "increment": "0.000001",
+    "label": "RENBTC/BTC"
+  },
+  {
+    "asset": "WBTC",
+    "currency": "BTC",
+    "min_size": "0.000185",
+    "max_size": null,
+    "increment": "0.000001",
+    "label": "WBTC/BTC"
+  },
+  {
+    "asset": "TRX",
+    "currency": "GBP",
+    "min_size": "99.051931",
+    "max_size": null,
+    "increment": "0.01",
+    "label": "TRX/GBP"
+  },
+  {
+    "asset": "ZAP",
+    "currency": "USD",
+    "min_size": "84.797092",
+    "max_size": null,
+    "increment": "0.01",
+    "label": "ZAP/USD"
   }
 ]
