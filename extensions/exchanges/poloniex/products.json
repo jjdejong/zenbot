@@ -1184,6 +1184,14 @@
     "label": "The Graph/Tether USD"
   },
   {
+    "asset": "GTC",
+    "currency": "USDT",
+    "min_total": "1",
+    "max_size": null,
+    "increment": "0.00000001",
+    "label": "Gitcoin/Tether USD"
+  },
+  {
     "asset": "HEGIC",
     "currency": "USDT",
     "min_total": "1",
@@ -1206,6 +1214,14 @@
     "max_size": null,
     "increment": "0.00000001",
     "label": "Hedget/Tether USD"
+  },
+  {
+    "asset": "HT",
+    "currency": "USDT",
+    "min_total": "1",
+    "max_size": null,
+    "increment": "0.00000001",
+    "label": "Huobi Token/Tether USD"
   },
   {
     "asset": "IBVOL",
@@ -1870,6 +1886,14 @@
     "max_size": null,
     "increment": "0.00000001",
     "label": "Darwinia Network Native Token/Tether USD"
+  },
+  {
+    "asset": "RLC",
+    "currency": "USDT",
+    "min_total": "1",
+    "max_size": null,
+    "increment": "0.00000001",
+    "label": "RLC/Tether USD"
   },
   {
     "asset": "ROOK",
